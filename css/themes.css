@@ -1,0 +1,34 @@
+/* ============================================================
+   themes.css — رنگ‌بندی هر ورزش
+   با دسته انتخاب‌شده، js/layout.js صفت data-sport را روی <html> می‌گذارد
+   و رنگ‌های همین فایل جایگزین می‌شوند. هر تم حالت روشن و تیره دارد.
+   ============================================================ */
+/* پیش‌فرض: همه */
+:root{--bg:#F3F5F9;--stripe:#EAEEF5;--surface:#FFFFFF;--text:#14213A;--muted:#41506E;--brand:#1E40AF;--on-brand:#FFFFFF;--hot:#B84307;--line:#70809C;--hero:#16294A;--hero2:#0A1426;--line2:#9DB6E0;--accent:#C6F135}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1220;--stripe:#0D1729;--surface:#121C30;--text:#E8EEF8;--muted:#A8B8D0;--brand:#7FB2FF;--on-brand:#0A1220;--hot:#FFB26B;--line:#566B8C}}
+:root[data-theme="dark"]{--bg:#0A1220;--stripe:#0D1729;--surface:#121C30;--text:#E8EEF8;--muted:#A8B8D0;--brand:#7FB2FF;--on-brand:#0A1220;--hot:#FFB26B;--line:#566B8C}
+
+/* فوتبال (سبز چمن) */
+:root[data-sport="football"]{--bg:#F2F6F3;--stripe:#EBF1ED;--surface:#FFFFFF;--text:#10261D;--muted:#3F5A4C;--brand:#0B6B3A;--on-brand:#FFFFFF;--hot:#B84307;--line:#6F877A;--hero:#0B3D2E;--hero2:#04140D;--line2:#8BE3A8;--accent:#C6F135}
+:root[data-theme="dark"][data-sport="football"]{--bg:#07130E;--stripe:#0A1A13;--surface:#0F2119;--text:#E8F3EC;--muted:#A9C2B4;--brand:#5EE08A;--on-brand:#07130E;--hot:#FFB26B;--line:#4A6A5A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])[data-sport="football"]{--bg:#07130E;--stripe:#0A1A13;--surface:#0F2119;--text:#E8F3EC;--muted:#A9C2B4;--brand:#5EE08A;--on-brand:#07130E;--hot:#FFB26B;--line:#4A6A5A}}
+
+/* بسکتبال (نارنجی پارکت) */
+:root[data-sport="basketball"]{--bg:#FBF5EE;--stripe:#F4EADF;--surface:#FFFFFF;--text:#2A180D;--muted:#664530;--brand:#B54708;--on-brand:#FFFFFF;--hot:#A31D1D;--line:#8A6A52;--hero:#5A2A0E;--hero2:#2B1306;--line2:#F5B26B;--accent:#FFC857}
+:root[data-theme="dark"][data-sport="basketball"]{--bg:#150C05;--stripe:#1B1008;--surface:#241509;--text:#FBEEDF;--muted:#D2B79C;--brand:#FF9A4D;--on-brand:#150C05;--hot:#FF9B9B;--line:#84604A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])[data-sport="basketball"]{--bg:#150C05;--stripe:#1B1008;--surface:#241509;--text:#FBEEDF;--muted:#D2B79C;--brand:#FF9A4D;--on-brand:#150C05;--hot:#FF9B9B;--line:#84604A}}
+
+/* والیبال (آبی زمین) */
+:root[data-sport="volleyball"]{--bg:#F1F6FC;--stripe:#E7EFF9;--surface:#FFFFFF;--text:#0F2238;--muted:#3B5878;--brand:#1D5FB8;--on-brand:#FFFFFF;--hot:#B84307;--line:#6A84A3;--hero:#0F3C78;--hero2:#071F40;--line2:#8FC1FF;--accent:#FFD23F}
+:root[data-theme="dark"][data-sport="volleyball"]{--bg:#07111F;--stripe:#0A1829;--surface:#0E1D33;--text:#E6F0FC;--muted:#A5BCD8;--brand:#6FB1FF;--on-brand:#07111F;--hot:#FFB26B;--line:#4B6A8C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])[data-sport="volleyball"]{--bg:#07111F;--stripe:#0A1829;--surface:#0E1D33;--text:#E6F0FC;--muted:#A5BCD8;--brand:#6FB1FF;--on-brand:#07111F;--hot:#FFB26B;--line:#4B6A8C}}
+
+/* کشتی (قرمز تشک) */
+:root[data-sport="wrestling"]{--bg:#FBF3F3;--stripe:#F4E7E7;--surface:#FFFFFF;--text:#2A1015;--muted:#6B3A42;--brand:#A3162B;--on-brand:#FFFFFF;--hot:#8A4B00;--line:#95606A;--hero:#5B0F1D;--hero2:#2A0710;--line2:#F08A9A;--accent:#F5C542}
+:root[data-theme="dark"][data-sport="wrestling"]{--bg:#17080C;--stripe:#1E0B10;--surface:#281016;--text:#FBE9EC;--muted:#D9A9B1;--brand:#FF7A8E;--on-brand:#17080C;--hot:#FFC266;--line:#92505C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])[data-sport="wrestling"]{--bg:#17080C;--stripe:#1E0B10;--surface:#281016;--text:#FBE9EC;--muted:#D9A9B1;--brand:#FF7A8E;--on-brand:#17080C;--hot:#FFC266;--line:#92505C}}
+
+/* جهانی (بنفش نیلی) */
+:root[data-sport="world"]{--bg:#F4F3FC;--stripe:#EBEAF8;--surface:#FFFFFF;--text:#17143A;--muted:#4A4780;--brand:#4338CA;--on-brand:#FFFFFF;--hot:#B84307;--line:#7673A8;--hero:#231B6B;--hero2:#0F0A3A;--line2:#A9A2FF;--accent:#F2C94C}
+:root[data-theme="dark"][data-sport="world"]{--bg:#0E0B24;--stripe:#130F2E;--surface:#1A1540;--text:#EEECFC;--muted:#B8B3E6;--brand:#A9A2FF;--on-brand:#0E0B24;--hot:#FFC266;--line:#615CA3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])[data-sport="world"]{--bg:#0E0B24;--stripe:#130F2E;--surface:#1A1540;--text:#EEECFC;--muted:#B8B3E6;--brand:#A9A2FF;--on-brand:#0E0B24;--hot:#FFC266;--line:#615CA3}}
