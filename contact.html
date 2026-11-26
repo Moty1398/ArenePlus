@@ -27,17 +27,22 @@
         <dt>تلگرام</dt><dd><a href="https://t.me/Motahare46" target="_blank" rel="noopener" dir="ltr">@Motahare46</a></dd>
       </dl>
     </div>
-    <form class="card" id="cform" novalidate>
+    <form class="card" id="cform" novalidate action="https://formsubmit.co/smmmahdavi9@gmail.com" method="POST">
       <h2>ارسال پیام</h2>
       <label for="cname">نام شما</label>
-      <input id="cname" autocomplete="name">
+      <input id="cname" name="name" autocomplete="name">
       <p></p>
       <label for="cemail">ایمیل شما (برای ارسال پاسخ)</label>
-      <input id="cemail" type="email" dir="ltr" autocomplete="email">
+      <input id="cemail" name="email" type="email" dir="ltr" autocomplete="email">
       <p></p>
       <label for="cmsg">پیام</label>
-      <textarea id="cmsg" rows="4"></textarea>
+      <textarea id="cmsg" name="message" rows="4"></textarea>
       <p class="meta" id="cstat" role="status" aria-live="polite">پیام شما مستقیم به ایمیل ما ارسال می‌شود.</p>
+      <input type="hidden" name="_subject" value="پیام جدید از سایت ArenaPlus">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" id="cnext" value="">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <button type="submit" id="csend" class="btn-main">ارسال پیام</button>
     </form>
   </main>
