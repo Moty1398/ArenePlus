@@ -3,6 +3,8 @@
    پیام به‌صورت واقعی با سرویس رایگان FormSubmit به ایمیل ارسال می‌شود.
    اولین بار که پیامی بفرستی، FormSubmit یک ایمیل «فعال‌سازی» به
    همین آدرس می‌فرستد؛ روی لینک آن کلیک کن (پوشه Spam را هم ببین).
+   ترتیب ارسال: ۱) روش AJAX (بدون ترک صفحه)  ۲) اگر نشد، ارسال معمولی فرم
+   ۳) اگر اینترنت نبود، باز شدن برنامه ایمیل کاربر.
    ============================================================ */
 Layout.init('all', '');
 
@@ -11,6 +13,10 @@ var MAIL_TO = 'smmmahdavi9@gmail.com';
 (function () {
   var form = document.getElementById('cform'), status = document.getElementById('cstat');
   var nameEl = document.getElementById('cname'), emailEl = document.getElementById('cemail'), msgEl = document.getElementById('cmsg'), btn = document.getElementById('csend');
+
+  /* آدرس بازگشت بعد از ارسال معمولی فرم (فقط روی http/https کار می‌کند) */
+  if (/^https?:/.test(location.protocol)) document.getElementById('cnext').value = location.origin + location.pathname + '?sent=1';
+  if (location.search.indexOf('sent=1') > -1) status.textContent = 'پیام شما ارسال شد. ممنون!';
 
   function mailtoFallback(n, m) {   // اگر ارسال مستقیم نشد، برنامه ایمیل کاربر باز می‌شود
     location.href = 'mailto:' + MAIL_TO + '?subject=' + encodeURIComponent('پیام از ArenaPlus - ' + n) + '&body=' + encodeURIComponent(m);
@@ -41,8 +47,13 @@ var MAIL_TO = 'smmmahdavi9@gmail.com';
       })
       .catch(function () {
         btn.disabled = false;
-        status.textContent = 'ارسال مستقیم ممکن نشد؛ برنامه ایمیل شما باز می‌شود. اگر باز نشد، مستقیم به ' + MAIL_TO + ' بنویسید.';
-        mailtoFallback(n, m);
+        if (navigator.onLine && /^https?:/.test(location.protocol)) {
+          status.textContent = 'در حال ارسال با روش دوم…';
+          form.submit();                      // ارسال معمولی فرم به FormSubmit
+        } else {
+          status.textContent = 'ارسال مستقیم ممکن نشد؛ برنامه ایمیل شما باز می‌شود. اگر باز نشد، مستقیم به ' + MAIL_TO + ' بنویسید.';
+          mailtoFallback(n, m);
+        }
       });
   };
 })();
